@@ -1,11 +1,10 @@
-﻿using Analyzer.Functions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Analyzer
+namespace Analyzer.Functions
 {
     /// <summary>
     /// Determines which funciton class to return
@@ -18,8 +17,7 @@ namespace Analyzer
         /// </summary>
         private Dictionary<string, Function> _functions = new()
         {
-            {"-gt", new GreaterThanValueFinder() },
-            {"-st", new SmallerThanValueFinder() },
+            {"-cp", new ValueComparer() },
             {"-pt", new ValuePrinter() }
         };
 

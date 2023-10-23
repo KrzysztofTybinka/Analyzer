@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Analyzer.Reader
+namespace Analyzer.FileParserAbstractFactory.FileParser
 {
-    public abstract class Reader
+    internal class XmlFileParser : IFileParser
     {
     }
 }

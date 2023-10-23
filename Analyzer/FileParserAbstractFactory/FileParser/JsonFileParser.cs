@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Analyzer.Reader
+namespace Analyzer.FileParserAbstractFactory.FileParser
 {
-    public class DirReader : Reader
+    public class JsonFileParser : IFileParser
     {
     }
 }
