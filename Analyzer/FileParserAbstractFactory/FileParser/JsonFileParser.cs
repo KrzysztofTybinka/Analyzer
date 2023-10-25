@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Analyzer.FileParserAbstractFactory.FileParser
 {
-    public class JsonFileParser : IFileParser
+    public class JsonFileParser : FileParser
     {
+        public JsonFileParser(string content) : base (content) { }
+
+        public override List<string?> ParseFile(string attribute)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

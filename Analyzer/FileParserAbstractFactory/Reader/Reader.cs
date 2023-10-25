@@ -18,17 +18,17 @@ namespace Analyzer.FileParserAbstractFactory.Reader
 
         public abstract Task<string> ReadFile();
 
-        public IFileParser GetFileParser()
+        public FileParser.FileParser GetFileParser()
         {
             string fileType = _path.Split('.').Last();
 
             if (fileType == ".json")
             {
-                return new JsonFileParser();
+                return new JsonFileParser(ReadFile().Result);
             }
             if (fileType == ".xml")
             {
-                return new XmlFileParser();
+                return new XmlFileParser(ReadFile().Result);
             }
             throw new InvalidOperationException();
         }

@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Analyzer.FileParserAbstractFactory.FileParser
 {
-    internal class XmlFileParser : IFileParser
+    internal class XmlFileParser : FileParser
     {
+        public XmlFileParser(string content) : base(content) { }
+        public override List<string?> ParseFile(string attribute)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

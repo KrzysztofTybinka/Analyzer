@@ -8,7 +8,9 @@ namespace Analyzer.FileParserAbstractFactory.Reader
 {
     public class ReaderProducer
     {
-        public Reader GetReader(string path)
+        ReaderProducer() { }
+
+        public static Reader GetReader(string path)
         {
             if (IsUrl(path))
             {
@@ -27,7 +29,7 @@ namespace Analyzer.FileParserAbstractFactory.Reader
         /// <param name="input"></param>
         /// <returns>True if input walue is url, otherwise false.</returns>
         /// <exception cref="NullReferenceException"></exception>
-        private bool IsUrl(string input)
+        private static bool IsUrl(string input)
         {
             return Uri.TryCreate(input, UriKind.Absolute, out Uri? uriResult)
                 && (uriResult.Scheme == (Uri.UriSchemeHttp ?? throw new NullReferenceException())
@@ -40,7 +42,7 @@ namespace Analyzer.FileParserAbstractFactory.Reader
         /// </summary>
         /// <param name="input"></param>
         /// <returns>True if input is valid, otherwise false.</returns>
-        private bool IsDir(string input)
+        private static bool IsDir(string input)
         {
             return File.Exists(input);
         }

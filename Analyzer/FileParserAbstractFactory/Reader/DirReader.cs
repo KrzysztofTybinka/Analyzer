@@ -9,9 +9,11 @@ namespace Analyzer.FileParserAbstractFactory.Reader
 {
     public class DirReader : Reader
     {
-        public override string ReadFile()
+        public DirReader(string path) : base(path) { }
+
+        public override async Task<string> ReadFile()
         {
-            return File.ReadAllText(filePath);
+            return await File.ReadAllTextAsync(_path);
         }
     }
 }
