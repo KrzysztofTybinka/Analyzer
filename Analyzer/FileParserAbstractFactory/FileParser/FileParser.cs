@@ -15,6 +15,6 @@ namespace Analyzer.FileParserAbstractFactory.FileParser
             _content = content;
         }
 
-        public abstract List<string?> ParseFile(string attribute);
+        public abstract List<T> ParseFile<T>(string attribute);
     }
 }

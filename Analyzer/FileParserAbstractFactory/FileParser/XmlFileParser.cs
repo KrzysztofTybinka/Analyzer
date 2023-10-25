@@ -11,12 +11,13 @@ namespace Analyzer.FileParserAbstractFactory.FileParser
     {
         public XmlFileParser(string content) : base(content) { }
 
-        public override List<string?> ParseFile(string attribute)
+        public override List<T> ParseFile<T>(string attribute)
         {
             XDocument xmlDoc = XDocument.Parse(_content);
 
-            List<string?> list = xmlDoc.Descendants(attribute)
+            List<T> list = xmlDoc.Descendants(attribute)
                 .Select(x => x.Value ?? null)
+                .Cast<T>()
                 .ToList();
 
             if (list.Count == 0)

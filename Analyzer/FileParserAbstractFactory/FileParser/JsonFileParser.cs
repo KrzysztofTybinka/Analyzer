@@ -14,15 +14,16 @@ namespace Analyzer.FileParserAbstractFactory.FileParser
     {
         public JsonFileParser(string content) : base (content) { }
 
-        public override List<string?> ParseFile(string attribute)
+        public override List<T> ParseFile<T>(string attribute)
         {
             JObject json = JObject.Parse(_content);
 
-            List<string?> list = json.Properties()
+            List<T> list = json.Properties()
                 .Descendants()
                 .OfType<JProperty>()
                 .Where(x => x.Name == attribute)
-                .Values<string?>()
+                .Values<T>()
+                .Cast<T>()
                 .ToList();
 
             if (list.Count == 0)
