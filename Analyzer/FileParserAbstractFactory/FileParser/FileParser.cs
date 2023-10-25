@@ -8,7 +8,7 @@ namespace Analyzer.FileParserAbstractFactory.FileParser
 {
     public abstract class FileParser
     {
-        private readonly string _content;
+        protected readonly string _content;
 
         public FileParser(string content)
         {
