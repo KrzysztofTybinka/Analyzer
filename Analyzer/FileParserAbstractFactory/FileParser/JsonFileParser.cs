@@ -10,20 +10,19 @@ using System.Threading.Tasks;
 
 namespace Analyzer.FileParserAbstractFactory.FileParser
 {
-    public class JsonFileParser : FileParser
+    public class JsonFileParser : FileParser<JObject>
     {
         public JsonFileParser(string content) : base (content) { }
 
-        public override List<T> ParseFile<T>(string attribute)
+        public override List<JObject> ParseFile(string attribute)
         {
             JObject json = JObject.Parse(_content);
 
-            List<T> list = json.Properties()
+            List<JObject> list = json.Properties()
                 .Descendants()
                 .OfType<JProperty>()
                 .Where(x => x.Name == attribute)
                 .Values<T>()
-                .Cast<T>()
                 .ToList();
 
             if (list.Count == 0)

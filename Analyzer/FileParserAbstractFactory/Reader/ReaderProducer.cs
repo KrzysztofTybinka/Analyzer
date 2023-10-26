@@ -18,7 +18,7 @@ namespace Analyzer.FileParserAbstractFactory.Reader
             }
             if (IsDir(path))
             {
-                return new DirReader();
+                return new DirReader(path);
             }
             throw new InvalidOperationException();
         }

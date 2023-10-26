@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Analyzer.FileParserAbstractFactory.FileParser;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,17 +7,15 @@ using System.Threading.Tasks;
 
 namespace Analyzer.Functions
 {
-    public class ValueComparer : Function
+    public class ValueComparer : Function<double>
     {
+        public ValueComparer(FileParser fileParser, string node) : base(fileParser, node) { }
+
         public override void Execute()
         {
-            throw new NotImplementedException();
+            var attribs = _fileParser.ParseFile<double>(_node);
         }
 
-        public void Test()
-        {
-            Compare(x => x > 5, new List<int>());
-        }
 
         private List<int> Compare(Func<int, bool> func, List<int> values)
         {
