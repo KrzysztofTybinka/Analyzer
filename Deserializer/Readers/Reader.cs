@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Analyzer.FileParserAbstractFactory.Reader
 {
-    public abstract class Reader
+    internal abstract class Reader
     {
         protected string _path;
 

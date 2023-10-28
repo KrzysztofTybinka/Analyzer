@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Analyzer.FileParserAbstractFactory.Reader
 {
-    public class DirReader : Reader
+    internal class DirReader : Reader
     {
         public DirReader(string path) : base(path) { }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Analyzer.FileParserAbstractFactory.Reader
 {
-    public class ReaderProducer
+    internal class ReaderProducer
     {
         ReaderProducer() { }
 

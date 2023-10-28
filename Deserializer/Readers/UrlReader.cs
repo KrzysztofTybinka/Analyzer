@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Analyzer.FileParserAbstractFactory.Reader
 {
-    public class UrlReader : Reader
+    internal class UrlReader : Reader
     {
         public UrlReader(string path) : base(path) { }
 

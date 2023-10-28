@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Analyzer.FileParserAbstractFactory.FileParser
 {
-    public class JsonFileDeserializer<T> : FileDeserializer<T>
+    internal class JsonFileDeserializer<T> : FileDeserializer<T>
     {
         public JsonFileDeserializer(string content) : base (content) { }
 
