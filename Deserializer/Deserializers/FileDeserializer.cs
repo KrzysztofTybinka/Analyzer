@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Analyzer.FileParserAbstractFactory.FileParser
 {
-    public abstract class FileDeserializer
+    public abstract class FileDeserializer<T>
     {
         protected readonly string _content;
 
@@ -15,6 +15,6 @@ namespace Analyzer.FileParserAbstractFactory.FileParser
             _content = content;
         }
 
-        public abstract List<T> ParseFile<T>(string attribute);
+        public abstract List<T> Deserialize(string attribute);
     }
 }

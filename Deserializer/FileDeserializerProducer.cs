@@ -8,10 +8,10 @@ namespace Analyzer.FileParserAbstractFactory
     {
         FileDeserializerProducer() { }
 
-        public static FileDeserializer GetFileParser(string path)
+        public static FileDeserializer<T> GetFileParser<T>(string path)
         {
             var reader = ReaderProducer.GetReader(path);
-            return reader.GetFileDeserializer(); 
+            return reader.GetFileDeserializer<T>(); 
         }
     }
 }
