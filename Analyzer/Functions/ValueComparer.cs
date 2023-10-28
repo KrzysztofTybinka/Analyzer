@@ -9,7 +9,7 @@ namespace Analyzer.Functions
 {
     public class ValueComparer : Function<double>
     {
-        public ValueComparer(FileParser fileParser, string node) : base(fileParser, node) { }
+        public ValueComparer(Deserializer fileParser, string node) : base(fileParser, node) { }
 
         public override void Execute()
         {

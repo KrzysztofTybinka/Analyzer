@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace Analyzer.FileParserAbstractFactory.FileParser
 {
-    public class JsonFileParser : FileParser<JObject>
+    public class JsonFileDeserializer : FileDeserializer
     {
-        public JsonFileParser(string content) : base (content) { }
+        public JsonFileDeserializer(string content) : base (content) { }
 
         public override List<JObject> ParseFile(string attribute)
         {

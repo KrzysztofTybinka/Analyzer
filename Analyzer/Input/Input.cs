@@ -17,7 +17,7 @@ namespace Analyzer.Input
     {
         public string Node { get; set; }
         public string Function { get; set; }
-        public string Value { get; set; }
+        public string Argument { get; set; }
         public string Path { get; set; }
 
         public Input(string command)

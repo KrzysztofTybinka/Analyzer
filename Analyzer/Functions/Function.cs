@@ -9,10 +9,10 @@ namespace Analyzer
 {
     public abstract class Function<T> where T : struct
     {
-        protected FileParser _fileParser;
+        protected Deserializer _fileParser;
         protected string _node;
 
-        public Function(FileParser fileParser, string node)
+        public Function(Deserializer fileParser, string node)
         {
             _fileParser = fileParser;
             _node = node;

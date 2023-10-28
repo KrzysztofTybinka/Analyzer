@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Analyzer.FileParserAbstractFactory.FileParser
 {
-    public abstract class FileParser
+    public abstract class FileDeserializer
     {
         protected readonly string _content;
 
-        public FileParser(string content)
+        public FileDeserializer(string content)
         {
             _content = content;
         }

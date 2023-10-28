@@ -7,9 +7,9 @@ using System.Xml.Linq;
 
 namespace Analyzer.FileParserAbstractFactory.FileParser
 {
-    internal class XmlFileParser : FileParser
+    internal class XmlFileDeserializer : FileDeserializer
     {
-        public XmlFileParser(string content) : base(content) { }
+        public XmlFileDeserializer(string content) : base(content) { }
 
         public override List<T> ParseFile<T>(string attribute)
         {
