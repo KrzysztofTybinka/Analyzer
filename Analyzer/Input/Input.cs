@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Analyzer.FileParserAbstractFactory;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,7 +25,6 @@ namespace Analyzer.Input
         {
             string[] elements = command.Split(" ");  
             
-
         }
     }
 }

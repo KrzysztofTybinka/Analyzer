@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,9 +15,15 @@ namespace Analyzer.FileParserAbstractFactory.FileParser
     {
         public JsonFileDeserializer(string content) : base (content) { }
 
-        public override List<T> Deserialize(string attribute)
+        public override List<T> Deserialize()
         {
-            throw new NotImplementedException();
+            List<T>? objects = JsonConvert.DeserializeObject<List<T>>(_content);
+
+            if (objects == null || objects.Count == 0)
+            {
+                throw new InvalidDataException("Invalid file data");
+            }
+            return objects;
         }
     }
 }
