@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Analyzer.FileParserAbstractFactory.FileParser
 {
-    internal class JsonFileDeserializer<T> : FileDeserializer<T>
+    internal class JsonFileDeserializer<T> : FileDeserializer<T> where T : class
     {
         public JsonFileDeserializer(string content) : base (content) { }
 

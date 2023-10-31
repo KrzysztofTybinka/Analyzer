@@ -8,7 +8,7 @@ namespace Analyzer.FileParserAbstractFactory
     {
         FileToObjects() { }
 
-        public static List<T> Deserialize<T>(string path)
+        public static List<T> Deserialize<T>(string path) where T : class 
         {
             var reader = ReaderProducer.GetReader(path);
             return reader.GetFileDeserializer<T>().Deserialize(); 

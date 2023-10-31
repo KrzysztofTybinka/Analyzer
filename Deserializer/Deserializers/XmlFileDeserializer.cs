@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 
 namespace Analyzer.FileParserAbstractFactory.FileParser
 {
-    internal class XmlFileDeserializer<T> : FileDeserializer<T>
+    internal class XmlFileDeserializer<T> : FileDeserializer<T> where T : class
     {
         public XmlFileDeserializer(string content) : base(content) { }
 
