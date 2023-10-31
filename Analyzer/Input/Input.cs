@@ -14,7 +14,7 @@ namespace Analyzer.Input
       3. Musze utworzyć function której chce użyć
       4. Otrzymuje function, przekazuje tam value, używam jej 
       5. zwracam użytkownikowi output*/
-    public class Input //node -fc val source        gowno -gt 4 C//..........   builder tu użyć chyba 
+    public class Input //node -fc val source
     {
         public string Node { get; set; }
         public string Function { get; set; }
