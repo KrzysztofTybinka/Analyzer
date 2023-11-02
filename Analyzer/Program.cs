@@ -11,6 +11,14 @@ namespace Analyzer
     {
         static void Main(string[] args)
         {
+            if (args.Length == 0)
+            {
+                Console.WriteLine("\n");
+            }
+
+            Options input = new Options(args);
+
+
             List<Employee> deserializer = FileToObjects.Deserialize<Employee>("C://xaxaxa//xaxaxa");
 
 
