@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Analyzer.Models
 {
-    public class Student : IDateComparable
+    public class Student : IValueComparable
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -17,7 +17,12 @@ namespace Analyzer.Models
         public bool Graduated { get; set; }
 
 
-        public bool Compare(Func<DateTime, bool> operation, string onProperty)
+        void Test()
+        {
+            var x = Compare<DateTime>(x => x < new DateTime(2021, 01, 01), "");
+        }
+
+        public bool Compare<T>(Func<T, bool> operation, string onProperty)
         {
             if (onProperty.ToLower() == "dateofbirth")
             {

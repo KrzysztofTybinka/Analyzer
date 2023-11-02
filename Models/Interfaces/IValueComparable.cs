@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Analyzer.Models.Interfaces
 {
-    internal interface IDateComparable
+    internal interface IValueComparable
     {
-        public bool Compare(Func<DateTime, bool> operation, string onProperty);
+        public bool Compare<T>(Func<T, bool> operation, string onProperty)
     }
 }
