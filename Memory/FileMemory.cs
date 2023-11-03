@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Analyzer
+namespace Memory
 {
-    internal interface ICommand
+    internal class FileMemory
     {
-        void Execute();
     }
 }

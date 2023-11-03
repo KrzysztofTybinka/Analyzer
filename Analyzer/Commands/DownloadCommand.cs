@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Analyzer
+namespace Analyzer.Commands
 {
     [Verb("download", HelpText = "Download a file")]
     internal class DownloadCommand : ICommand

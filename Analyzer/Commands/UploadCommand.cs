@@ -1,11 +1,13 @@
-﻿using CommandLine;
+﻿using Analyzer.FileParserAbstractFactory;
+using Analyzer.Models;
+using CommandLine;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Analyzer
+namespace Analyzer.Commands
 {
     [Verb("upload", HelpText = "Upload a file into memory")]
     internal class UploadCommand : ICommand
@@ -18,6 +20,8 @@ namespace Analyzer
 
         public void Execute()
         {
+            List<Employee> t = FileToObjects.Deserialize<Employee>(Path);
+
             throw new NotImplementedException();
         }
     }

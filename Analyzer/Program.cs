@@ -4,6 +4,7 @@ using System.Xml.Linq;
 using System.Xml.Serialization;
 using System;
 using CommandLine;
+using Analyzer.Commands;
 
 namespace Analyzer
 {
