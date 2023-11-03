@@ -7,17 +7,12 @@ namespace Analyzer.FileParserAbstractFactory
 {
     public class FileToObjects
     {
-        private List<ISerializable> _objects;
+        FileToObjects() { }
 
-        public FileToObjects(List<ISerializable> objects)
-        {
-            _objects = objects;
-        }
-
-        public List<ISerializable> Deserialize(string path)
+        public static List<T> Deserialize<T>(string path) where T : class 
         {
             var reader = ReaderProducer.GetReader(path);
-            return reader.GetFileDeserializer(_objects).Deserialize(); 
+            return reader.GetFileDeserializer().Deserialize<T>(); 
         }
     }
 }

@@ -7,9 +7,9 @@ namespace Analyzer.FileParserAbstractFactory.FileParser
     {
         public JsonFileDeserializer(string content) : base (content) { }
 
-        public override List<ISerializable> Deserialize()
+        public override List<T> Deserialize<T>() where T : class
         {
-            List<ISerializable>? objects = JsonConvert.DeserializeObject<List<ISerializable>>(_content);
+            List<T>? objects = JsonConvert.DeserializeObject<List<T>>(_content);
 
             if (objects == null || objects.Count == 0)
             {

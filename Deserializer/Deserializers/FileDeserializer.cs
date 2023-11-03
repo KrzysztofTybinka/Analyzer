@@ -13,6 +13,6 @@ namespace Analyzer.FileParserAbstractFactory.FileParser
             _content = content;
         }
 
-        public abstract List<ISerializable> Deserialize();
+        public abstract List<T> Deserialize<T>() where T : class;
     }
 }

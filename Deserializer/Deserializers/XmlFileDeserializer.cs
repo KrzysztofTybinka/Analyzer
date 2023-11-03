@@ -7,14 +7,14 @@ namespace Analyzer.FileParserAbstractFactory.FileParser
     {
         public XmlFileDeserializer(string content) : base(content) { }
 
-        public override List<ISerializable> Deserialize()
+        public override List<T> Deserialize<T>() where T : class 
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(List<ISerializable>));
-            List<ISerializable>? objects;
+            XmlSerializer serializer = new XmlSerializer(typeof(List<T>));
+            List<T>? objects;
 
             using (TextReader reader = new StringReader(_content))
             {
-                objects = (List<ISerializable>?)serializer.Deserialize(reader);
+                objects = (List<T>?)serializer.Deserialize(reader);
             }
 
             if (objects == null || objects.Count == 0)

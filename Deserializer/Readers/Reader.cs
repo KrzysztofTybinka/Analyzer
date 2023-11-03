@@ -14,7 +14,7 @@ namespace Analyzer.FileParserAbstractFactory.Reader
 
         public abstract Task<string> ReadFile();
 
-        public FileDeserializer GetFileDeserializer(List<ISerializable> objects) 
+        public FileDeserializer GetFileDeserializer() 
         {
             string fileType = _path.Split('.').Last();
 
