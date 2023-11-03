@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+
+using Deserializer;
 
 namespace Analyzer.FileParserAbstractFactory.FileParser
 {
-    internal abstract class FileDeserializer<T> where T : class
+    internal abstract class FileDeserializer
     {
         protected readonly string _content;
 
@@ -15,6 +13,6 @@ namespace Analyzer.FileParserAbstractFactory.FileParser
             _content = content;
         }
 
-        public abstract List<T> Deserialize();
+        public abstract List<ISerializable> Deserialize();
     }
 }

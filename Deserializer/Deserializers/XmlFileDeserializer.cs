@@ -1,26 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Security;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
+﻿using Deserializer;
 using System.Xml.Serialization;
 
 namespace Analyzer.FileParserAbstractFactory.FileParser
 {
-    internal class XmlFileDeserializer<T> : FileDeserializer<T> where T : class
+    internal class XmlFileDeserializer : FileDeserializer
     {
         public XmlFileDeserializer(string content) : base(content) { }
 
-        public override List<T> Deserialize()
+        public override List<ISerializable> Deserialize()
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(List<T>));
-            List<T>? objects;
+            XmlSerializer serializer = new XmlSerializer(typeof(List<ISerializable>));
+            List<ISerializable>? objects;
 
             using (TextReader reader = new StringReader(_content))
             {
-                objects = (List<T>?)serializer.Deserialize(reader);
+                objects = (List<ISerializable>?)serializer.Deserialize(reader);
             }
 
             if (objects == null || objects.Count == 0)

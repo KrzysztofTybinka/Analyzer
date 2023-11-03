@@ -1,9 +1,5 @@
 ﻿using Analyzer.FileParserAbstractFactory.FileParser;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Deserializer;
 
 namespace Analyzer.FileParserAbstractFactory.Reader
 {
@@ -18,17 +14,17 @@ namespace Analyzer.FileParserAbstractFactory.Reader
 
         public abstract Task<string> ReadFile();
 
-        public FileDeserializer<T> GetFileDeserializer<T>() where T : class 
+        public FileDeserializer GetFileDeserializer(List<ISerializable> objects) 
         {
             string fileType = _path.Split('.').Last();
 
             if (fileType == "json")
             {
-                return new JsonFileDeserializer<T>(ReadFile().Result);
+                return new JsonFileDeserializer(ReadFile().Result);
             }
             if (fileType == "xml")
             {
-                return new XmlFileDeserializer<T>(ReadFile().Result);
+                return new XmlFileDeserializer(ReadFile().Result);
             }
             throw new InvalidOperationException();
         }

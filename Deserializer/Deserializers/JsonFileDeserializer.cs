@@ -1,23 +1,15 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Text.Json.Nodes;
-using System.Threading.Tasks;
+﻿using Deserializer;
+using Newtonsoft.Json;
 
 namespace Analyzer.FileParserAbstractFactory.FileParser
 {
-    internal class JsonFileDeserializer<T> : FileDeserializer<T> where T : class
+    internal class JsonFileDeserializer : FileDeserializer
     {
         public JsonFileDeserializer(string content) : base (content) { }
 
-        public override List<T> Deserialize()
+        public override List<ISerializable> Deserialize()
         {
-            List<T>? objects = JsonConvert.DeserializeObject<List<T>>(_content);
+            List<ISerializable>? objects = JsonConvert.DeserializeObject<List<ISerializable>>(_content);
 
             if (objects == null || objects.Count == 0)
             {

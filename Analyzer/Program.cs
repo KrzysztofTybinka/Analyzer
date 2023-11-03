@@ -1,9 +1,9 @@
 ﻿using Analyzer.FileParserAbstractFactory;
 using Analyzer.FileParserAbstractFactory.FileParser;
-using Analyzer.Models;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 using System;
+using CommandLine;
 
 namespace Analyzer
 {
@@ -16,12 +16,9 @@ namespace Analyzer
                 Console.WriteLine("\n");
             }
 
-            Options input = new Options(args);
 
-
-            List<Employee> deserializer = FileToObjects.Deserialize<Employee>("C://xaxaxa//xaxaxa");
-
-
+            Parser.Default.ParseArguments<UploadCommand, DownloadCommand>(args)
+                .WithParsed<ICommand>(t => t.Execute());
 
 
         }
