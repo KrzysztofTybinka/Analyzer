@@ -1,7 +1,6 @@
 ﻿
 using Analyzer.FileParserAbstractFactory.FileParser;
 using Analyzer.FileParserAbstractFactory.Reader;
-using Deserializer;
 
 namespace Analyzer.FileParserAbstractFactory
 {

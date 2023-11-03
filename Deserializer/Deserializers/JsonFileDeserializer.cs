@@ -1,5 +1,4 @@
-﻿using Deserializer;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace Analyzer.FileParserAbstractFactory.FileParser
 {

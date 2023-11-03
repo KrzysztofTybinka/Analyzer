@@ -11,6 +11,7 @@ namespace Analyzer
     {
         static void Main(string[] args)
         {
+            args = Console.ReadLine().Split(" ");
             if (args.Length == 0)
             {
                 Console.WriteLine("\n");

@@ -1,5 +1,4 @@
-﻿using Deserializer;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
 
 namespace Analyzer.FileParserAbstractFactory.FileParser
 {
