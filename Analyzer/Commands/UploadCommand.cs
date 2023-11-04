@@ -2,6 +2,7 @@
 using Analyzer.Models;
 using CommandLine;
 using CommandLine.Text;
+using Memory;
 using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
@@ -22,18 +23,27 @@ namespace Analyzer.Commands
 
         public void Execute()
         {
+            string message = "";
             if (CollectionName == "employees")
             {
                 List<Employee> employees = FileToObjects.Deserialize<Employee>(Path);
+                message = ModelCache.Add(GetFileName(), employees);
             }
             else if (CollectionName == "students")
             {
                 List<Student> employees = FileToObjects.Deserialize<Student>(Path);
+                message = ModelCache.Add(GetFileName(), employees);
             }
             else
             {
-                Console.WriteLine("Collection doesn't exist.");
+                message = "Collection doesn't exist.";
             }
+            Console.WriteLine(message);
+        }
+
+        private string GetFileName()
+        {
+            return Path.Split('\\', '/').Last();
         }
 
     }
