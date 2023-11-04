@@ -21,9 +21,9 @@ namespace Analyzer.FileParserAbstractFactory.Reader
             {
                 return new JsonFileDeserializer(ReadFile().Result);
             }
-            if (fileType == "xml")
+            if (fileType == "csv")
             {
-                return new XmlFileDeserializer(ReadFile().Result);
+                return new CsvFileDeserializer(ReadFile().Result);
             }
             throw new InvalidOperationException();
         }

@@ -23,7 +23,7 @@ namespace Analyzer.Commands
 
         public void Execute()
         {
-            string message = "";
+            string message;
             if (CollectionName == "employees")
             {
                 List<Employee> employees = FileToObjects.Deserialize<Employee>(Path);
@@ -36,9 +36,9 @@ namespace Analyzer.Commands
             }
             else
             {
-                message = "Collection doesn't exist.";
+                message = "Collection not supported.";
             }
-            Console.WriteLine(message);
+            Console.WriteLine("\n" + message);
         }
 
         private string GetFileName()
