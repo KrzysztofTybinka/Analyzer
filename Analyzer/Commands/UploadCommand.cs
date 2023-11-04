@@ -1,6 +1,8 @@
 ﻿using Analyzer.FileParserAbstractFactory;
 using Analyzer.Models;
 using CommandLine;
+using CommandLine.Text;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,9 +22,19 @@ namespace Analyzer.Commands
 
         public void Execute()
         {
-            List<Employee> t = FileToObjects.Deserialize<Employee>(Path);
-
-            throw new NotImplementedException();
+            if (CollectionName == "employees")
+            {
+                List<Employee> employees = FileToObjects.Deserialize<Employee>(Path);
+            }
+            else if (CollectionName == "students")
+            {
+                List<Student> employees = FileToObjects.Deserialize<Student>(Path);
+            }
+            else
+            {
+                Console.WriteLine("Collection doesn't exist.");
+            }
         }
+
     }
 }
