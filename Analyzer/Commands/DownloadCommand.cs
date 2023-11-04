@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Memory;
+using System.Text.Json;
 
 namespace Analyzer.Commands
 {
@@ -19,7 +21,11 @@ namespace Analyzer.Commands
 
         public void Execute()
         {
-            throw new NotImplementedException();
+            var collection = ModelCache.Get(FileName);
+
+
+            //download
+            ModelCache.Remove(FileName);
         }
     }
 }

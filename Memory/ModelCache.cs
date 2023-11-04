@@ -55,6 +55,18 @@ namespace Memory
             }
         }
 
+        public static IEnumerable? Get(string name)
+        {
+            lock (_lockObject)
+            {
+                if (!_cache.ContainsKey(name))
+                {
+                    return _cache[name];
+                }
+                return null;
+            }
+        }
+
         public static string Remove(string name)
         {
             lock (_lockObject)
