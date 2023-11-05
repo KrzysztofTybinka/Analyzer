@@ -24,19 +24,22 @@ dotnet run
 The application should now be running, to use the application follow the ons-screen instructions or type --help.
 # Usage
 ### User Interface
-Applications supports various commands:     
+Applications supports various commands:    
+<br /> 
 **upload**
 ```
 upload [-collection | --c] <collection_name> <source>
 ```
 Upload commad uploads file from **source**, which is a URL or dir path into a memory, 
 data stored in file must match given **collection_name** supported by the application.  
+<br /> 
 **download**
 ```
 download [-name | --n] <name> <path>
 ```
 Downloads file from the memory, **name** is file name that has been uploaded,
 **path** is a directory path you want the file to be downlaoded.  
+<br /> 
 **greater**
 ```
 greater [-than | --t] <property_name> <value>
@@ -44,6 +47,7 @@ greater [-than | --t] <property_name> <value>
 Greater command parses a file you're currently working on,
 and filters it by comparing **property_name** to a **value**,
 returning objects with greater property values.  
+<br /> 
 **smaller**
 ```
 smaller [-than | --t] <property_name> <value>
@@ -51,12 +55,14 @@ smaller [-than | --t] <property_name> <value>
 Smaller command parses a file you're currently working on,
 and filters it by comparing **property_name** to a **value**, 
 returning objects with smaller property values.  
+<br /> 
 **switch**
 ```
 switch [-name | --n] <file_name> 
 ```
 Switches a working directory into a directory
 specified by a **file_name**.  
+<br /> 
   
 --help - displays help menu  
 --exit - exits the application   
