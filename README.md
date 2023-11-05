@@ -74,9 +74,11 @@ with use of those services.
 ### Deserializer service
 The Deserializer service employs the **abstract factory** design pattern to determine file paths and types,  transforming their contents into well-structured objects.
 The application is further refined through the application of the **facade** design pattern. This approach encapsulates the entire service within two publicly accessible classes, 
-effectively abstracting all underlying complexity from end-users.    
-<img src="Images/deserializerclassdiagram.png">    
-Endpoint class providing access to serializer.    
+effectively abstracting all underlying complexity from end-users.  <br /> 
+<img src="Images/deserializerclassdiagram.png">  
+<br />
+Endpoint class providing access to serializer.  
+<br />
 <img src="Images/deserializerendpoint.png">
 
 
