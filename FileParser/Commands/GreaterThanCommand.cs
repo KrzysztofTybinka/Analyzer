@@ -25,7 +25,7 @@ namespace FileParser.Commands
             try
             {
                 var modified = objects.Cast<IValueComparable>().Where(x => x.Compare(Value, Property) > 0).AsEnumerable();
-                ModelCache.Override(ModelCache.StateName!, modified);
+                ModelCache.Override(modified);
                 Console.WriteLine("File updated.");
             }
             catch (FormatException)

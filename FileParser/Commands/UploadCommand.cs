@@ -32,7 +32,7 @@ namespace FileParser.Commands
             {
                 message = "Collection not supported.";
             }
-            Console.WriteLine("\n" + message);
+            Console.WriteLine(message);
         }
 
         private string GetFileName()

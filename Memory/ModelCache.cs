@@ -14,7 +14,7 @@ namespace Memory
             {
                 if (_stateName == null)
                 {
-                    return "Not working on any file.";
+                    return "Not working on any file, upload a file to start working.";
                 }
                 return $"Working on {_stateName}.";
             }
@@ -75,9 +75,9 @@ namespace Memory
         {
             lock (_lockObject)
             {
-                if (StateName != null && _cache.ContainsKey(StateName))
+                if (_stateName != null && _cache.ContainsKey(_stateName))
                 {
-                    return _cache[StateName];
+                    return _cache[_stateName];
                 }
                 return null;
             }
@@ -88,13 +88,13 @@ namespace Memory
         /// </summary>
         /// <param name="name">Cache key to be overriden</param>
         /// <param name="collection">New cache value</param>
-        public static void Override(string name, IEnumerable collection)
+        public static void Override(IEnumerable collection)
         {
             lock (_lockObject)
             {
-                if (_cache.ContainsKey(name))
+                if (_stateName != null && _cache.ContainsKey(_stateName))
                 {
-                    _cache[name] = collection;
+                    _cache[_stateName] = collection;
                 }
             }
         }
@@ -127,9 +127,9 @@ namespace Memory
             {
                 if (_cache.ContainsKey(name))
                 {
-                    if (StateName == name)
+                    if (_stateName == name)
                     {
-                        StateName = null;
+                        _stateName = null;
                     }
                     _cache.Remove(name);
                     return $"{name} removed.";

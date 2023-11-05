@@ -8,10 +8,17 @@ namespace FileParser
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Upload a file to start working");
-            while (true)
+            bool isRunning = true;
+
+            Console.CancelKeyPress += (sender, e) =>
             {
-                Console.WriteLine(ModelCache.StateName);
+                e.Cancel = true; 
+                isRunning = false; 
+            };
+
+            while (isRunning)
+            {
+                Messages();
 
                 if (args.Length == 0)
                 {
@@ -25,6 +32,13 @@ namespace FileParser
                     ExitCommand>(args)
                     .WithParsed<ICommand>(t => t.Execute());
             }
+        }
+
+        static void Messages()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("\n" + ModelCache.StateName);
+            Console.ResetColor();
         }
     }
 }
