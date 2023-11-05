@@ -62,7 +62,7 @@ specified by a **file_name**.
 --exit - exits the application   
 
 For example, user can upload a json file containing data about employees, filter it by the date of birth and download parsed file into a directory.
-<img >
+<img src="Images/readmejsonimage.png" >
 
 ### Code
  
