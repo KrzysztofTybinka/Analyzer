@@ -1,8 +1,5 @@
 ﻿using CsvHelper;
-using CsvHelper.Configuration;
-using System;
 using System.Globalization;
-using System.Xml.Serialization;
 
 namespace Analyzer.FileParserAbstractFactory.FileParser
 {

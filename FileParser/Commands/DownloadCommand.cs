@@ -1,15 +1,8 @@
-﻿using CommandLine.Text;
-using CommandLine;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CommandLine;
 using Memory;
-using System.Text.Json;
 using Deserializer;
 
-namespace Analyzer.Commands
+namespace FileParser.Commands
 {
     [Verb("download", HelpText = "Download a file")]
     internal class DownloadCommand : ICommand

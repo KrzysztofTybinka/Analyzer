@@ -1,6 +1,4 @@
 ﻿
-
-
 namespace Analyzer.FileParserAbstractFactory.FileParser
 {
     internal abstract class FileDeserializer

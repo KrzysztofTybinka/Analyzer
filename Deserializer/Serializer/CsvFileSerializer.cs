@@ -1,10 +1,6 @@
 ﻿using CsvHelper;
-using System;
 using System.Collections;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Deserializer.Serializer
 {

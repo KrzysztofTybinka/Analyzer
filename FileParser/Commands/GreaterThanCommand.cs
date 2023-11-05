@@ -1,15 +1,8 @@
-﻿using CommandLine.Text;
-using CommandLine;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CommandLine;
 using Memory;
 using Models.Interfaces;
 
-namespace Analyzer.Commands
+namespace FileParser.Commands
 {
     [Verb("greater", HelpText = "Greater than")]
     internal class GreaterThanCommand : ICommand

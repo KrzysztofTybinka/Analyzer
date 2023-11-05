@@ -1,6 +1,4 @@
-﻿
-using Analyzer.FileParserAbstractFactory.FileParser;
-using Analyzer.FileParserAbstractFactory.Reader;
+﻿using Analyzer.FileParserAbstractFactory.Reader;
 
 namespace Analyzer.FileParserAbstractFactory
 {

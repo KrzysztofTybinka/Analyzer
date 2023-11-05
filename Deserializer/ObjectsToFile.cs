@@ -1,12 +1,6 @@
-﻿using Analyzer.FileParserAbstractFactory.FileParser;
-using Analyzer.FileParserAbstractFactory.Reader;
-using Deserializer.Serializer;
-using System;
+﻿using Deserializer.Serializer;
 using System.Collections;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Deserializer
 {

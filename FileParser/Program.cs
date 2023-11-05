@@ -1,15 +1,10 @@
-﻿using Analyzer.FileParserAbstractFactory;
-using Analyzer.FileParserAbstractFactory.FileParser;
-using System.Xml.Linq;
-using System.Xml.Serialization;
-using System;
-using CommandLine;
-using Analyzer.Commands;
+﻿using CommandLine;
+using FileParser.Commands;
 using Memory;
 
-namespace Analyzer
+namespace FileParser
 {
-    public class Program
+    internal class Program
     {
         static void Main(string[] args)
         {
@@ -23,14 +18,13 @@ namespace Analyzer
                     continue;
                 }
 
-                Parser.Default.ParseArguments<UploadCommand, 
-                    DownloadCommand, 
-                    SmallerThanCommand, 
-                    GreaterThanCommand, 
+                Parser.Default.ParseArguments<UploadCommand,
+                    DownloadCommand,
+                    SmallerThanCommand,
+                    GreaterThanCommand,
                     ExitCommand>(args)
                     .WithParsed<ICommand>(t => t.Execute());
             }
-
         }
     }
 }

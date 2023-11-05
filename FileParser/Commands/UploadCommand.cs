@@ -1,16 +1,10 @@
 ﻿using Analyzer.FileParserAbstractFactory;
 using Analyzer.Models;
 using CommandLine;
-using CommandLine.Text;
 using Memory;
-using Newtonsoft.Json.Serialization;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Analyzer.Commands
+
+namespace FileParser.Commands
 {
     [Verb("upload", HelpText = "Upload a file into memory")]
     internal class UploadCommand : ICommand
