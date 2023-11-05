@@ -1,13 +1,15 @@
-﻿using Analyzer.Models.Interfaces;
+﻿using Models.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Analyzer.Models
 {
-    public class Employee : IDateComparable
+    public class Employee : IValueComparable
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -15,15 +17,15 @@ namespace Analyzer.Models
         public DateTime DateOfBirth { get; set; }
         public double Salary { get; set; }
 
-        public bool Compare(Func<DateTime, bool> operation, string onProperty)
+        public int Compare(string value, string propertyName)
         {
-            if (onProperty.ToLower() == "dateofbirth")
+            if (propertyName.ToLower() == "dateofbirth")
             {
-                return operation(DateOfBirth);
+                return DateOfBirth.CompareTo(DateTime.Parse(value));
             }
-            if (onProperty.ToLower() == "salary")
+            if (propertyName.ToLower() == "salary")
             {
-                return Salary.CompareTo(Salary);
+                return Salary.CompareTo(double.Parse(value, CultureInfo.InvariantCulture));
             }
             throw new InvalidOperationException();
         }

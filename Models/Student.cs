@@ -1,4 +1,4 @@
-﻿using Analyzer.Models.Interfaces;
+﻿using Models.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Analyzer.Models
 {
-    public class Student : IDateComparable
+    public class Student : IValueComparable
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -16,15 +16,15 @@ namespace Analyzer.Models
         public DateTime StartedAt { get; set; }
         public bool Graduated { get; set; }
 
-        public bool Compare(Func<DateTime, bool> operation, string onProperty)
+        public int Compare(string value, string propertyName)
         {
-            if (onProperty.ToLower() == "dateofbirth")
+            if (propertyName.ToLower() == "dateofbirth")
             {
-                return operation(DateOfBirth);
+                return DateOfBirth.CompareTo(DateTime.Parse(value));
             }
-            else if (onProperty.ToLower() == "startedat")
+            if (propertyName.ToLower() == "startedat")
             {
-                return operation(StartedAt);
+                return StartedAt.CompareTo(DateTime.Parse(value));
             }
             throw new InvalidOperationException();
         }

@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +15,6 @@ namespace Deserializer.Serializer
             _path = path;
         }
 
-        public abstract void Serialize(IEnumerable<object> objects);
+        public abstract void Serialize(IEnumerable objects);
     }
 }

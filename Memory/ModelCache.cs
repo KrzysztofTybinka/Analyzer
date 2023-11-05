@@ -11,9 +11,25 @@ namespace Memory
 {
     public sealed class ModelCache
     {
-        public static string StateName { get; private set; } = "Not working on any file";
-        private static Dictionary<string, IEnumerable> _cache = new Dictionary<string, IEnumerable>();
-        private static readonly object _lockObject = new object();
+        public static string? StateName 
+        { 
+            get
+            {
+                if (_stateName == null)
+                {
+                    return "Not working on any file.";
+                }
+                return $"Working on {_stateName}.";
+            }
+            private set
+            {
+                _stateName = value;
+            }
+        }
+
+        private static string? _stateName;
+        private static Dictionary<string, IEnumerable> _cache = new();
+        private static readonly object _lockObject = new();
         ModelCache() { }
 
         public static string Add(string name, IEnumerable collection)
@@ -39,7 +55,7 @@ namespace Memory
                     return $"File named {name} doesn't exist.";
                 }
                 StateName = name;
-                return $"Working on {name}.";
+                return $"Switched to {name}.";
             }
         }
 
@@ -47,7 +63,7 @@ namespace Memory
         {
             lock (_lockObject)
             {
-                if (!_cache.ContainsKey(StateName))
+                if (StateName != null && _cache.ContainsKey(StateName))
                 {
                     return _cache[StateName];
                 }
@@ -55,11 +71,22 @@ namespace Memory
             }
         }
 
+        public static void Override(string name, IEnumerable collection)
+        {
+            lock (_lockObject)
+            {
+                if (_cache.ContainsKey(name))
+                {
+                    _cache[name] = collection;
+                }
+            }
+        }
+
         public static IEnumerable? Get(string name)
         {
             lock (_lockObject)
             {
-                if (!_cache.ContainsKey(name))
+                if (_cache.ContainsKey(name))
                 {
                     return _cache[name];
                 }
@@ -75,7 +102,7 @@ namespace Memory
                 {
                     if (StateName == name)
                     {
-                        StateName = "Not working on any file";
+                        StateName = null;
                     }
                     _cache.Remove(name);
                     return $"{name} removed.";

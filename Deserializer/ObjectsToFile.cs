@@ -2,7 +2,7 @@
 using Analyzer.FileParserAbstractFactory.Reader;
 using Deserializer.Serializer;
 using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -14,7 +14,7 @@ namespace Deserializer
     {
         ObjectsToFile() { }
 
-        public static string Serialize(string path, IEnumerable<object> objects) 
+        public static string Serialize(string path, IEnumerable objects) 
         {
             try
             {

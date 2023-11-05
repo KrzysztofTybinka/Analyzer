@@ -8,6 +8,6 @@ namespace Models.Interfaces
 {
     public interface IValueComparable
     {
-        public bool Compare(Func<double, bool> operation, string onProperty);
+        public int Compare(string value, string propertyName);
     }
 }

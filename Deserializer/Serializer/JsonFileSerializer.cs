@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +11,7 @@ namespace Deserializer.Serializer
     {
         public JsonFileSerializer(string path) : base(path) { }
 
-        public override void Serialize(IEnumerable<object> objects)
+        public override void Serialize(IEnumerable objects)
         {
             using (StreamWriter file = File.CreateText(_path))
             {

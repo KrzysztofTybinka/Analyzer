@@ -5,6 +5,7 @@ using System.Xml.Serialization;
 using System;
 using CommandLine;
 using Analyzer.Commands;
+using Memory;
 
 namespace Analyzer
 {
@@ -12,19 +13,21 @@ namespace Analyzer
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Upload a file to start working");
             while (true)
             {
-                var input = Console.ReadLine();
-                args = string.IsNullOrEmpty(input) ? new string[0] : input.Split(" ");
+                Console.WriteLine(ModelCache.StateName);
 
                 if (args.Length == 0)
                 {
-                    Console.WriteLine();
                     continue;
                 }
 
-
-                Parser.Default.ParseArguments<UploadCommand, DownloadCommand>(args)
+                Parser.Default.ParseArguments<UploadCommand, 
+                    DownloadCommand, 
+                    SmallerThanCommand, 
+                    GreaterThanCommand, 
+                    ExitCommand>(args)
                     .WithParsed<ICommand>(t => t.Execute());
             }
 
