@@ -24,47 +24,48 @@ dotnet run
 The application should now be running, to use the application follow the ons-screen instructions or type --help.
 # Usage
 ### User Interface
-Applications supports various commands:  
+Applications supports various commands:     
 **upload**
 ```
 upload [-collection | --c] <collection_name> <source>
 ```
-Upload commad uploads file from _source_, which is a URL or dir path into a memory, 
-data stored in file must match given _collectionname_ supported by the application.  
+Upload commad uploads file from **source**, which is a URL or dir path into a memory, 
+data stored in file must match given **collection_name** supported by the application.  
 **download**
 ```
 download [-name | --n] <name> <path>
 ```
-Downloads file from the memory, _name_ is file name that has been uploaded,
-_path_ is a directory path you want the file to be downlaoded.  
+Downloads file from the memory, **name** is file name that has been uploaded,
+**path** is a directory path you want the file to be downlaoded.  
 **greater**
 ```
 greater [-than | --t] <property_name> <value>
 ```
 Greater command parses a file you're currently working on,
-and filters it by comparing _propertyname_ to a _value_,
+and filters it by comparing **property_name** to a **value**,
 returning objects with greater property values.  
 **smaller**
 ```
 smaller [-than | --t] <property_name> <value>
 ```
 Smaller command parses a file you're currently working on,
-and filters it by comparing _propertyname_ to a _value_, 
+and filters it by comparing **property_name** to a **value**, 
 returning objects with smaller property values.  
 **switch**
 ```
 switch [-name | --n] <file_name> 
 ```
 Switches a working directory into a directory
-specified by a _filename_.  
+specified by a **file_name**.  
   
 --help - displays help menu  
---exit - exits the application  
+--exit - exits the application   
 
-
+For example, user can upload a json file containing data about employees, filter it by the date of birth and download parsed file into a directory.
+<img >
 
 ### Code
-
+ 
 
 # Contributing
 If you wish to contribute to this project, please feel free to create a pull request with your changes.
