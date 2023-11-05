@@ -64,8 +64,20 @@ specified by a **file_name**.
 For example, user can upload a json file containing data about employees, filter it by the date of birth and download parsed file into a directory.
 <img src="Images/readmejsonimage.png" >
 
-### Code
- 
+# Code
+### Architecture
+The application architecture is built upon three projects, each representing independent services that operate autonomously and don't depend on each other.
+2. The startup project designed for streamlined execution, incorporates console commands with help of CommandLineParser nuget package and parses data
+with use of those services.
+<img src="Images/dependencies.png">
+
+### Deserializer service
+The Deserializer service employs the **abstract factory** design pattern to determine file paths and types,  transforming their contents into well-structured objects.
+The application is further refined through the application of the **facade** design pattern. This approach encapsulates the entire service within two publicly accessible classes, 
+effectively abstracting all underlying complexity from end-users.
+<img src="Images/deserializerclassdiagram.png">
+<img src="Images/deserializerendpoint.png">
+
 
 # Contributing
 If you wish to contribute to this project, please feel free to create a pull request with your changes.
