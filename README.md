@@ -74,7 +74,7 @@ For example, user can upload a json file containing data about employees, filter
 # Code
 ### Architecture
 The application architecture is built upon three projects, each representing independent services that operate autonomously and don't depend on each other.
-2. The startup project designed for streamlined execution, incorporates console commands with help of CommandLineParser nuget package and parses data
+The startup project designed for streamlined execution, incorporates console commands with help of CommandLineParser nuget package and parses data
 with use of those services.  
 <br /> 
 <img src="Images/dependencies.png">
