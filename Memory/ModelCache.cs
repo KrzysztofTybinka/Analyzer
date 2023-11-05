@@ -2,6 +2,10 @@
 
 namespace Memory
 {
+    /// <summary>
+    /// Stores obects and provides methods
+    /// to read and modify them.
+    /// </summary>
     public sealed class ModelCache
     {
         public static string? StateName 
@@ -25,6 +29,12 @@ namespace Memory
         private static readonly object _lockObject = new();
         ModelCache() { }
 
+        /// <summary>
+        /// Adds collection of objects into cache.
+        /// </summary>
+        /// <param name="name">Cache key</param>
+        /// <param name="collection">Cache value</param>
+        /// <returns>Message informing about adding state.</returns>
         public static string Add(string name, IEnumerable collection)
         {
             lock (_lockObject)
@@ -39,6 +49,11 @@ namespace Memory
             }
         }
 
+        /// <summary>
+        /// Switches StateName
+        /// </summary>
+        /// <param name="name">Cache key</param>
+        /// <returns>Message informing about switching state.</returns>
         public static string Switch(string name)
         {
             lock (_lockObject)
@@ -52,6 +67,10 @@ namespace Memory
             }
         }
 
+        /// <summary>
+        /// Gets collection based on current StateName
+        /// </summary>
+        /// <returns>Collection of objects</returns>
         public static IEnumerable? Current()
         {
             lock (_lockObject)
@@ -64,6 +83,11 @@ namespace Memory
             }
         }
 
+        /// <summary>
+        /// Overrides cached item
+        /// </summary>
+        /// <param name="name">Cache key to be overriden</param>
+        /// <param name="collection">New cache value</param>
         public static void Override(string name, IEnumerable collection)
         {
             lock (_lockObject)
@@ -75,6 +99,11 @@ namespace Memory
             }
         }
 
+        /// <summary>
+        /// Gets collection based on key name
+        /// </summary>
+        /// <param name="name">Cache key</param>
+        /// <returns>Collection of objects</returns>
         public static IEnumerable? Get(string name)
         {
             lock (_lockObject)
@@ -87,6 +116,11 @@ namespace Memory
             }
         }
 
+        /// <summary>
+        /// Removes item from cache
+        /// </summary>
+        /// <param name="name">Cache key</param>
+        /// <returns>Message informing about deleting state.</returns>
         public static string Remove(string name)
         {
             lock (_lockObject)
