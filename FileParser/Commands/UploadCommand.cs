@@ -2,7 +2,8 @@
 using Analyzer.Models;
 using CommandLine;
 using Memory;
-
+using System;
+using System.ComponentModel;
 
 namespace FileParser.Commands
 {
@@ -17,16 +18,17 @@ namespace FileParser.Commands
 
         public void Execute()
         {
+            string coll = CollectionName.ToLower();
             string message;
-            if (CollectionName == "employees")
+            if (coll == "employees" || coll == "employee")
             {
                 List<Employee> employees = FileToObjects.Deserialize<Employee>(Path);
                 message = ModelCache.Add(GetFileName(), employees);
             }
-            else if (CollectionName == "students")
+            else if (coll == "students" || coll == "student")
             {
-                List<Student> employees = FileToObjects.Deserialize<Student>(Path);
-                message = ModelCache.Add(GetFileName(), employees);
+                List<Student> students = FileToObjects.Deserialize<Student>(Path);
+                message = ModelCache.Add(GetFileName(), students);
             }
             else
             {
